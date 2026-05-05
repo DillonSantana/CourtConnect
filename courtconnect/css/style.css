@@ -1,0 +1,198 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* STICKY CONTACT BAR */
+.contact-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #0d1b2a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+/* STICKY MAIN HEADER */
+.main-header {
+    position: sticky;
+    top: 32px;
+    z-index: 999;
+    background: #1b263b;
+
+    display: flex;
+    align-items: center;
+
+    height: 70px;
+    padding: 0 20px;
+}
+
+/* LOGO + TITLE */
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex: 1; /* pushes nav to the right */
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.site-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+/* NAV TABS */
+.nav-tabs {
+    display: flex;
+    height: 100%;
+    width: 40%;
+}
+
+.nav-tabs a {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    color: white;
+    text-decoration: none !important;
+
+    background: #1b263b;
+
+    border-right: 1px solid #415a77;
+    transition: background 0.2s ease;
+}
+
+.nav-tabs a:first-child {
+    border-left: 1px solid #415a77;
+}
+
+.nav-tabs a:hover {
+    background: #415a77;
+}
+
+.nav-tabs a.active {
+    background: #415a77;
+    box-shadow: inset 0 -3px 0 #778da9;
+}
+
+/* PAGE CONTENT */
+.page-content {
+    padding: 20px;
+    min-height: 80vh;
+}
+
+/* FOOTER */
+.footer {
+    background: #0d1b2a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+/* Slides */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/* Images fill container */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fade animation */
+.fade {
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Active slide */
+.slide.active {
+    opacity: 1;
+}
+
+/* Centered overlay text */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.box-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.events-container {
+    border: solid;
+    border-radius: 10px;
+    padding: 15px;
+    width: 50%;
+    align-items: left;
+}
+
+.leaderboard-container {
+    border: solid;
+    border-radius: 10px;
+    padding: 15px;
+    width: 50%;
+    align-items: right;
+
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
+#calendar {
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
