@@ -64,8 +64,6 @@
     <footer class="footer">
         <p>© <?php echo date("Y"); ?> Court Connect. All rights reserved.</p>
     </footer>
-
-    <script src="js/script.js"></script>
   </body>
 </html>
 

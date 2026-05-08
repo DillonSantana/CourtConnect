@@ -28,16 +28,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
         eventClick: function(info) {
             const event = info.event;
-            alert(
-            event.title + "\n" +
-            "Description: " + (event.extendedProps.description || "None") + "\n" +
-            "Start: " + event.start.toLocaleString() + "\n" +
-            "End: " + event.end.toLocaleString() + "\n" +
-            "Location: " + (event.extendedProps.location || "TBA") + "\n" +
-            "Capacity: " + (event.extendedProps.capacity || "Unlimited")
-            );
+            currentEventId = event.id;
+            document.getElementById('modalTitle').innerText =
+                event.title;
+            document.getElementById('modalDescription').innerText =
+                event.extendedProps.description || "None";
+            document.getElementById('modalStart').innerText =
+                event.start.toLocaleString();
+            document.getElementById('modalEnd').innerText =
+                event.end.toLocaleString();
+            document.getElementById('modalLocation').innerText =
+                event.extendedProps.location || "TBA";
+            document.getElementById('modalCapacity').innerText =
+                event.extendedProps.capacity || "Unlimited";
+            document.getElementById('eventModal').style.display = 'block';
         }
     });
 
     calendar.render();
+
+    let currentEventId = null;
+    const modal = document.getElementById('eventModal');
+    document.querySelector('.close').onclick = function() {
+        modal.style.display = 'none';
+        document.getElementById('rsvpMessage').innerText = '';
+    };
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.getElementById('rsvpMessage').innerText = '';
+        }
+    };
+    function sendRSVP(status) {
+    fetch('rsvp.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body:
+            'event_id=' + encodeURIComponent(currentEventId) +
+            '&status=' + encodeURIComponent(status)
+    })
+    .then(response => response.json())
+    .then(data => {
+        const msg = document.getElementById('rsvpMessage');
+        msg.innerText = data.message;
+        if (data.success) {
+            msg.style.color = "green";
+        } else {
+            msg.style.color = "red";
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+    }
+    document.getElementById('yesBtn').onclick = function() {
+        sendRSVP('Yes');
+    };
+    document.getElementById('maybeBtn').onclick = function() {
+        sendRSVP('Maybe');
+    };
+    document.getElementById('noBtn').onclick = function() {
+        sendRSVP('No');
+    };
 });

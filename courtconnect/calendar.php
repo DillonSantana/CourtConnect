@@ -2,7 +2,7 @@
 require_once "db_connect.php";
 $conn = connectDB();
 
-$sql = "SELECT title, event_type, `description`, event_date, start_time, end_time, `location`, max_capacity FROM events";
+$sql = "SELECT event_id, title, event_type, `description`, event_date, start_time, end_time, `location`, max_capacity FROM events";
 $result = $conn->query($sql);
 $arr = $result->fetchAll();
 
@@ -10,6 +10,7 @@ $events = [];
 
 foreach ($arr as $row) {
     $events[] = [
+        'id' => $row['event_id'],
         'title' => $row['title'],
         'event_type' => $row['event_type'],
         'description' => $row['description'],

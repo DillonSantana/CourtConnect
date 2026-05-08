@@ -2,19 +2,20 @@
 function connectDB()
 {
 	// Local Server
+	/*
 	$host="localhost";
 	$db="courtconnect";
 	$user="root";
 	$pwd="";
 
+	*/
+
 
 	// Production Server
-	/*
 	$host="localhost";
 	$db="u668523202_courtconnect";
-	$user="Tennis";
+	$user="u668523202_Tennis";
 	$pwd="ClubTennisIsAwesome7";
-	*/
     
 
 	$attr="mysql:host=$host;dbname=$db";
